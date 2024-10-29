@@ -1,6 +1,13 @@
 body {
     width: 100%;
     background-color: powderblue;
-    size-adjust: auto;
     padding: 5%;
+}
+
+
+
+
+.mvvgo {
+    width: 100%;
+    padding: 10px;
 }
