@@ -1,13 +1,18 @@
 body {
+    margin: 0;
+    /* Reset default margin to avoid horizontal scrolling */
     width: 100%;
     background-color: powderblue;
-    padding: 5%;
+    padding: 0 10px;
+    /* Add horizontal padding uniformly */
+    box-sizing: border-box;
+    /* Ensure padding is included in width */
 }
-
-
-
 
 .mvvgo {
     width: 100%;
-    padding: 10px;
+    padding: 0 10px;
+    /* Use consistent padding */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
 }
