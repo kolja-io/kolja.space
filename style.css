@@ -1,4 +1,6 @@
 body {
     width: auto;
     background-color: powderblue;
+    size-adjust: auto;
+    padding: 5%;
 }
