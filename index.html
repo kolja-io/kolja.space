@@ -1,25 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Departures Garching Forschungszentrum</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Responsive MVV Departure Monitor</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Full-screen container to center the box */
+        body,
+        html {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Centered box without padding */
+        .centered-box {
+            width: 90%;
+            max-width: 600px;
+            height: 90vh;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Inner container for padding control */
+        .inner-container {
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            /* Add padding here */
+            box-sizing: border-box;
+            /* Ensure padding stays inside the box */
+        }
+
+        /* Responsive scaling for the MVV Departure Monitor */
+        .mvv-departure-monitor {
+            width: 100%;
+            height: 100%;
+            transform-origin: top left;
+        }
+    </style>
 </head>
 
 <body>
-    <section class="mvvgo">
-
-        <div class="mvv-departure-monitor"
-            monitor-configuration="eyJsYW5ndWFnZSI6eyJkZXBhcnR1cmUiOiJBYmZhaHJ0IiwidHJhaW5TdG9wcyI6IkhhbHRlc3RlbGxlbiIsImRpcmVjdGlvbiI6IlJpY2h0dW5nIiwiZm9vdGVyTm90ZSI6IqkgQ29weXJpZ2h0IiwiZm9vdGVyVGV4dCI6IldlaXRlcmUgRmFocnBsYW5hdXNr/G5mdGUgdW50ZXIgd3d3Lm12di1hdXNrdW5mdC5kZSBvZGVyIG1pdCBkZXIgTVZWLUFwcCIsImhlYWRlclRleHQiOiJBYmZhaHJ0ZW4gZvxyIGhldXRlLCAiLCJsYW5ndWFnZSI6ImRlIiwibGluZSI6IkxpbmllIiwibGl2ZSI6IkxpdmUiLCJzdG9wIjoiSGFsdGVzdGVsbGUiLCJ0cmFjayI6IkdsZWlzIn0sImlzRnVsbHNjcmVlbiI6ZmFsc2UsInN0YXRpb25zIjpbeyJzdGF0aW9uIjp7InVzYWdlIjoic2YiLCJ0eXBlIjoiYW55IiwibmFtZSI6IkdhcmNoaW5nIChiIE38bmNoZW4pLCBHYXJjaGluZywgRm9yc2NodW5nc3plbnRydW0iLCJzdGF0ZWxlc3MiOiIxMDAwNDYwIiwiYW55VHlwZSI6InN0b3AiLCJzb3J0IjoiMiIsInF1YWxpdHkiOiI5ODMiLCJiZXN0IjoiMSIsIm9iamVjdCI6IkdhcmNoaW5nLCBGb3JzY2h1bmdzemVudHJ1bSIsIm1haW5Mb2MiOiJHYXJjaGluZyAoYiBN/G5jaGVuKSIsIm1vZGVzIjoiMiw2LDciLCJyZWYiOnsiaWQiOiIxMDAwNDYwIiwiZ2lkIjoiZGU6MDkxODQ6NDYwIiwib21jIjoiOTE4NDExOSIsInBsYWNlSUQiOiIxIiwicGxhY2UiOiJHYXJjaGluZyAoYiBN/G5jaGVuKSIsImNvb3JkcyI6IjEyOTkyMzUuMDAwMDAsNTg0ODk2OC4wMDAwMCJ9LCJpZCI6ImRlOjA5MTg0OjQ2MCJ9LCJsaW5lcyI6W3sibnVtYmVyIjoiVTYiLCJzeW1ib2wiOiIwMTBVNi5zdmciLCJkaXJlY3Rpb24iOiJLbGluaWt1bSBHcm/faGFkZXJuIiwic3RhdGVsZXNzIjoic3dtOjAxMFU2Okc6SDowMTQiLCJuYW1lIjoiVS1CYWhuIn1dLCJsZWFkVGltZU1pbnV0ZXMiOjB9XSwibGluZXMiOltdLCJtYXhSZXN1bHRzIjoxMCwiZmV0Y2hJbnRlcnZhbEluTWludXRlcyI6Miwic2hvd05vdGlmaWNhdGlvbiI6dHJ1ZX0=">
+    <div class="centered-box">
+        <div class="inner-container">
+            <div class="mvv-departure-monitor" id="monitor"
+                monitor-configuration="eyJsYW5ndWFnZSI6eyJkZXBhcnR1cmUiOiJBYmZhaHJ0IiwidHJhaW5TdG9wcyI6IkhhbHRlc3RlbGxlbiIsImRpcmVjdGlvbiI6IlJpY2h0dW5nIiwiZm9vdGVyTm90ZSI6IqkgQ29weXJpZ2h0IiwiZm9vdGVyVGV4dCI6IldlaXRlcmUgRmFocnBsYW5hdXNr/G5mdGUgdW50ZXIgd3d3Lm12di1hdXNrdW5mdC5kZSBvZGVyIG1pdCBkZXIgTVZWLUFwcCIsImhlYWRlclRleHQiOiJBYmZhaHJ0ZW4gZvxyIGhldXRlLCAiLCJsYW5ndWFnZSI6ImRlIiwibGluZSI6IkxpbmllIiwibGl2ZSI6IkxpdmUiLCJzdG9wIjoiSGFsdGVzdGVsbGUiLCJ0cmFjayI6IkdsZWlzIn0sImlzRnVsbHNjcmVlbiI6ZmFsc2UsInN0YXRpb25zIjpbeyJzdGF0aW9uIjp7InVzYWdlIjoic2YiLCJ0eXBlIjoiYW55IiwibmFtZSI6IkdhcmNoaW5nIChiIE38bmNoZW4pLCBHYXJjaGluZywgRm9yc2NodW5nc3plbnRydW0iLCJzdGF0ZWxlc3MiOiIxMDAwNDYwIiwiYW55VHlwZSI6InN0b3AiLCJzb3J0IjoiMiIsInF1YWxpdHkiOiI5ODEiLCJiZXN0IjoiMSIsIm9iamVjdCI6IkdhcmNoaW5nLCBGb3JzY2h1bmdzemVudHJ1bSIsIm1haW5Mb2MiOiJHYXJjaGluZyAoYiBN/G5jaGVuKSIsIm1vZGVzIjoiMiw2LDciLCJyZWYiOnsiaWQiOiIxMDAwNDYwIiwiZ2lkIjoiZGU6MDkxODQ6NDYwIiwib21jIjoiOTE4NDExOSIsInBsYWNlSUQiOiIxIiwicGxhY2UiOiJHYXJjaGluZyAoYiBN/G5jaGVuKSIsImNvb3JkcyI6IjEyOTkyMzUuMDAwMDAsNTg0ODk2OC4wMDAwMCJ9LCJpZCI6ImRlOjA5MTg0OjQ2MCJ9LCJsaW5lcyI6W3sibnVtYmVyIjoiVTYiLCJzeW1ib2wiOiIwMTBVNi5zdmciLCJkaXJlY3Rpb24iOiJLbGluaWt1bSBHcm/faGFkZXJuIiwic3RhdGVsZXNzIjoic3dtOjAxMFU2Okc6SDowMTQiLCJuYW1lIjoiVS1CYWhuIn1dLCJsZWFkVGltZU1pbnV0ZXMiOjB9XSwibGluZXMiOltdLCJtYXhSZXN1bHRzIjoxMCwiZmV0Y2hJbnRlcnZhbEluTWludXRlcyI6Miwic2hvd05vdGlmaWNhdGlvbiI6dHJ1ZX0=">
+            </div>
         </div>
-        <script type="text/javascript" src="javascript.js"></script>
+    </div>
 
-    </section>
+    <script type="text/javascript"
+        src="https://www.mvv-muenchen.de/typo3conf/ext/sn_mvv_efa/Resources/Public/mvv-monitor/mvv-monitor.min.js"></script>
+    <script>
+        function resizeMonitor() {
+            const monitor = document.getElementById('monitor');
+            const scale = Math.min(
+                monitor.parentElement.clientWidth / monitor.scrollWidth,
+                monitor.parentElement.clientHeight / monitor.scrollHeight
+            );
+            monitor.style.transform = `scale(${scale})`;
+        }
 
-
+        window.addEventListener('load', resizeMonitor);
+        window.addEventListener('resize', resizeMonitor);
+    </script>
 </body>
 
 </html>
