@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-status-bar-style" content="white">
+  <link rel="stylesheet" type="text/css" href="photos.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="">
+  <link rel="icon" href="">
+</head>
+
+<body onload="hidetext()">
+
+  <div class="header" id="myHeader">
+    <h2>CampusCrew Randaliert</h2>
+
+    <!-- <label class="switch">
+      <input type="checkbox">
+      <div class="slider"></div>
+    </label> -->
+  </div>
+
+  <div id="gallery" class="gallery">
+    <!-- Add your photos here -->
+
+    <div class="photo">
+      <img src="/CampusCrew/bilder/1.jpg" alt="cooles bild" onclick="showLightbox(this)">
+    </div>
+    <div class="photo">
+      <img src="/CampusCrew/bilder/2.jpg" alt="cooles bild" onclick="showLightbox(this)">
+    </div>
+    <div class="photo">
+      <img src="/CampusCrew/bilder/3.jpg" alt="cooles bild" onclick="showLightbox(this)">
+    </div>
+    <div class="photo">
+      <img src="/CampusCrew/bilder/4.jpg" alt="cooles bild" onclick="showLightbox(this)">
+    </div>
+    <div class="photo">
+      <img src="/CampusCrew/bilder/5.jpg" alt="cooles bild" onclick="showLightbox(this)">
+    </div>
+    <div class="photo">
+      <img src="/CampusCrew/bilder/6.jpg" alt="cooles bild" onclick="showLightbox(this)">
+    </div>
+    <!-- Add the lightbox element -->
+    <div class="lightbox">
+      <span class="close" onclick="closeLightbox()">&times;</span>
+      <img src="">
+    </div>
+
+    <footer>
+
+      <div class="icons">
+        <a class="icon" onclick="makebig()"><img title="big" alt="big" src="/jule/icons/huge.png" width="30px"></a>
+        <a class="icon" onclick="makemedium()"><img title="medium" alt="medium" src="/jule/icons/medium.png"
+            width="30px"></a>
+        <a class="icon" onclick="makesmall()"><img title="small" alt="small" src="/jule/icons/small.png"
+            width="30px"></a>
+      </div>
+
+    </footer>
+
+    <script src="photos.js"></script>
+
+</body>
+
+</html>
